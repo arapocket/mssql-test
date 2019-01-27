@@ -6,6 +6,7 @@ sql.connect('mssql://Administrator:@localhost/mobss').then(res => {
     `
     console.log(res);
 }).catch(err => {
+    console.log('logging err');
     console.log(err);
 })
 
