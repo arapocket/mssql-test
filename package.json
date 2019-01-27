@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/arapocket/mssql-test/issues"
   },
-  "homepage": "https://github.com/arapocket/mssql-test#readme"
+  "homepage": "https://github.com/arapocket/mssql-test#readme",
+  "dependencies": {
+    "mssql": "^4.3.0"
+  }
 }
