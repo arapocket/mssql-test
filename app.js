@@ -1,13 +1,40 @@
 const sql = require('mssql')
 
 
-sql.connect('mssql://Administrator:h5bBXn9;(;yjWc4ANb)aIn7Xjl88.nia@localhost/mobss').then(res => {
-    sql.query`select * from mytable where id = ${value}
-    `
-    console.log(res);
+const config = {
+    user: 'Administrator',
+    password: '',
+    server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
+    database: 'mobss',
+
+    options: {
+        encrypt: false // Use this if you're on Windows Azure
+    }
+}
+
+sql.connect(config).then(pool => {
+    // Query
+    
+    return pool.request()
+    .input('input_parameter', sql.Int, value)
+    .query('select * from mytable where id = @input_parameter')
+}).then(result => {
+    console.dir(result)
+    
+    // Stored procedure
+    
+    return pool.request()
+    .input('input_parameter', sql.Int, value)
+    .output('output_parameter', sql.VarChar(50))
+    .execute('procedure_name')
+}).then(result => {
+    console.dir(result)
 }).catch(err => {
-    console.log('logging err');
-    console.log(err);
+    // ... error checks
+})
+
+sql.on('error', err => {
+    // ... error handler
 })
 
 
