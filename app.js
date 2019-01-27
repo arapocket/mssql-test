@@ -1,11 +1,13 @@
 const sql = require('mssql')
 
-async () => {
-    try {
-        await sql.connect('mssql://Administrator:@localhost/mobss')
-        const result = await sql.query`select * from mytable where id = ${value}`
-        console.dir(result)
-    } catch (err) {
-        // ... error checks
-    }
-}
+
+sql.connect('mssql://Administrator:@localhost/mobss').then(res => {
+    sql.query`select * from mytable where id = ${value}
+    `
+    console.log(res);
+}).catch(err => {
+    console.log(err);
+})
+
+
+
