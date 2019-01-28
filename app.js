@@ -30,11 +30,11 @@ sql.connect(config).then(pool => {
 }).then(result => {
     console.log(result)
 }).catch(err => {
-    // ... error checks
+    console.log(err);
 })
 
 sql.on('error', err => {
-    // ... error handler
+    console.log(err);
 })
 
 
