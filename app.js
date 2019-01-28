@@ -5,7 +5,7 @@ const config = {
     user: 'Administrator',
     password: '',
     // server: 'localhost\\EC2AMAZ-86TAJ27', // You can use 'localhost\\instance' to connect to named instance
-    server: 'localhost',
+    server: '127.0.0.1',
     database: 'mobss',
 
     options: {
