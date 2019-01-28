@@ -19,7 +19,7 @@ sql.connect(config).then(pool => {
     .input('input_parameter', sql.Int, value)
     .query('select * from mytable where id = @input_parameter')
 }).then(result => {
-    console.dir(result)
+    console.log(result)
     
     // Stored procedure
     
@@ -28,7 +28,7 @@ sql.connect(config).then(pool => {
     .output('output_parameter', sql.VarChar(50))
     .execute('procedure_name')
 }).then(result => {
-    console.dir(result)
+    console.log(result)
 }).catch(err => {
     // ... error checks
 })
