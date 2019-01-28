@@ -2,8 +2,8 @@ const sql = require('mssql')
 
 
 const config = {
-    user: 'EC2AMAZ-86TAJ27\Administrator',
-    password: '',
+    user: 'test',
+    password: 'Bollsill0!',
     server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
     database: 'mobss',
 
