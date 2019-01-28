@@ -30,10 +30,12 @@ sql.connect(config).then(pool => {
 }).then(result => {
     console.log(result)
 }).catch(err => {
+    console.log('logging err');
     console.log(err);
 })
 
 sql.on('error', err => {
+    console.log('logging sql.on err');
     console.log(err);
 })
 
